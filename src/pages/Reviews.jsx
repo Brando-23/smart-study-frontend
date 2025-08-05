@@ -25,7 +25,7 @@ const Reviews = () => {
     if (!confirmSubmit) return;
 
     try {
-      const res = await axios.post(`${import.meta.env.REACT_APP_API_URL}/api/review`, formData);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/review`, formData);
       console.log("Review added successfully:", res.data);
       alert("✅ Review submitted!");
       // Reset form only after successful submission

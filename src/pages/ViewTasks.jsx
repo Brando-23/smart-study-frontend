@@ -13,7 +13,7 @@ function ViewTasks() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.REACT_APP_API_URL}/api/tasks`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tasks`);
       setTasks(response.data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -30,7 +30,7 @@ function ViewTasks() {
     setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
 
     try {
-      await axios.delete(`${import.meta.env.REACT_APP_API_URL}/api/tasks/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/tasks/${id}`);
       console.log('Task deleted successfully:', id);
     } catch (error) {
       alert('⚠️ Failed to delete task from server. Reverting changes.');

@@ -16,7 +16,7 @@ const ChatGPTPanel = () => {
 
     try {
       // Send message to your backend (not directly to OpenAI)
-      const res = await axios.post(`${import.meta.env.REACT_APP_API_URL}/api/openai`, {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/openai`, {
         message: input,
       });
 

@@ -14,7 +14,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       navigate("/study"); 
-      await axios.post(`${import.meta.env.REACT_APP_API_URL}/api/signup`, form);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/signup`, form);
       alert("Signup successful!");
       console.log("Navigating to /login");
       // navigate("/login"); // ✅ This should work

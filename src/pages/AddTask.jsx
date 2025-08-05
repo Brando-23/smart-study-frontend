@@ -22,7 +22,7 @@ function AddTask() {
     e.preventDefault();
     
     try{
-      axios.post(`${import.meta.env.REACT_APP_API_URL}/api/tasks`,formData)
+      axios.post(`${process.env.REACT_APP_API_URL}/api/tasks`,formData)
       .then(res=>{
         console.log('Task added successfully:', res.data);
         alert('Task added successfully!');

@@ -13,19 +13,19 @@ function Dashboard() {
   });
 
   useEffect(() => {
-    axios.get(`${import.meta.env.REACT_APP_API_URL}/api/review`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/review`)
       .then((res) => setReviews(res.data.slice(-3).reverse()))
       .catch((err) => console.error('Error fetching reviews:', err));
 
-    axios.get(`${import.meta.env.REACT_APP_API_URL}/api/tasks/count`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/tasks/count`)
       .then((res) => setStatsData((prev) => ({ ...prev, total: res.data.count })))
       .catch((err) => console.error('Error fetching total tasks:', err));
 
-        axios.get(`${import.meta.env.REACT_APP_API_URL}/api/review/count`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/review/count`)
       .then((res) => setStatsData((prev) => ({ ...prev, reminders: res.data.count })))
       .catch((err) => console.error('Error fetching total tasks:', err));
 
-      axios.get(`${import.meta.env.REACT_APP_API_URL}/api/taskcompleted/count`)
+      axios.get(`${process.env.REACT_APP_API_URL}/api/taskcompleted/count`)
       .then((res)=> setStatsData((prev)=>({...prev,completed:res.data.count})))
       .catch((err)=>console.error('error fetching completed tasks:', err));
   }, []);
